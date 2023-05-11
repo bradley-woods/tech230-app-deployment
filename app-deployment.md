@@ -43,25 +43,35 @@ Pre-requisites:
 
     <img src="images/terminal-app.png" alt="terminal-app" width="300px">
 
-3. The next step is to install a list of app dependencies (packages that our app need to work properly) using the following commands. In summary, this installs the required software and tools necessary to run the app on the VM, such as node.js, process manager and python software properties.
+2. The next step is to install a list of app dependencies (packages that our app need to work properly) using the following commands. In summary, this installs the required software and tools necessary to run the app on the VM, such as nodeJS, process manager and Python software properties.
 
     ```console
-    app$ sudo apt-get install nodejs -y
+    $ sudo apt-get install nodejs -y
 
-    app$ sudo apt-get install python-software-properties
+    $ sudo apt-get install python-software-properties
 
-    app$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
-    app$ sudo npm install pm2 -g
+    $ sudo apt-get install nodejs -y
+
+    $ sudo npm install pm2 -g
     ```
 
-    > **Note:** The curl command retrieves and downloads a package from the provided url. `app$` indicates you are in the correct 'app' folder.
+    > **Note:** The curl command retrieves and downloads a package from the provided url. Also, the second `install nodejs` command is to get the correct version from the curl command.
+
+3. Now, navigate to the app folder if you wasn't already inside it, using `cd app` and run the following command to install any necessary node modules the developers say we need to run the app:
+
+    ```
+    app$ npm install
+    ```
+
+    > **Note:** `app$` indicates you are in the correct 'app' folder.
 
 ## Running the App
 
 1. The final step is simple, we just need to run the following command to start our app, which displays the following information in terminal to tell us which port the app is running:
 
-    ```console
+    ```
     app$ node app.js
     ```
 
