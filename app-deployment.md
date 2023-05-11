@@ -80,3 +80,38 @@ Pre-requisites:
 2. Now, if we go to our browser address bar and type the IP address followed by the port number (192.168.10.100:3000) we are presented with our web app successfully deployed on our VM!
 
     ![app-port](images/sparta-app.png)
+
+## Automating the App Deployment
+
+1. We will now automate the previous steps simply by adding to our shell script file 'provisions.sh'. We want to ensure all of the necessary app dependencies are installed, followed by changing directory to the 'app' folder and then installing the node package manager (npm) and running our app with the command `node app.js`. The 'provision.sh' script should look similar to the below:
+
+    ```bash
+    #!/bin/bash
+
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+
+    # Install nginx web server
+    sudo apt-get install nginx -y
+
+    # Start nginx web server 
+    sudo systemctl start nginx
+
+    # Display nginx web server status to check it is running
+    sudo systemctl status nginx
+
+    # Install app dependencies
+    sudo apt-get install python-software-properties
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    sudo apt-get install nodejs -y
+    sudo npm install pm2 -g
+
+    # Install npm in app directory and run the app
+    cd app
+    npm install
+    node app.js
+    ```
+
+2. Proceed by running the `vagrant up` command. Wait until everything installs (this may take some time). Once everything is finished, the final line in the terminal should display `Your app is ready and listening on port 3000` as previously shown in the manual method.
+
+3. The server should now be running with the app listening on port 3000, go ahead and type in the IP and port number (192.168.10.100:3000) into the browser address bar and you should see your app running!
