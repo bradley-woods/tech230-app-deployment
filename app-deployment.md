@@ -1,17 +1,17 @@
 # App Deployment
 
-This guide will explain how to deploy a web app on an nginx web server hosted on our Vagrant VM.
+This guide will explain how to deploy a web app on an Nginx web server hosted on our Vagrant VM.
 
 Pre-requisites:
 
-- Understand how to create and run an nginx web server using Vagrant: [tech230-vagrant-intro](https://github.com/bradley-woods/tech230-vagrant-intro)
+- Understand how to create and run an Nginx web server using Vagrant: [tech230-vagrant-intro](https://github.com/bradley-woods/tech230-vagrant-intro)
 - Have your application to be deployed in a folder called 'app' in the same directory as your 'Vagrantfile':
 
     <img src="images/app-folder.png" alt="app-folder" width="200px">
 
 ## Updating the Vagrantfile
 
-1. Following on from the previous repository, which explained how to create a VM and deploy an nginx web server on it, we need to first update the 'Vagrantfile' by adding a new line `config.vm.synced_folder "app", "/home/vagrant/app"` shown below:
+1. Following on from the previous repository, which explained how to create a VM and deploy an Nginx web server on it, we need to first update the 'Vagrantfile' by adding a new line `config.vm.synced_folder "app", "/home/vagrant/app"` shown below:
 
     ```ruby
     Vagrant.configure("2") do |config|
@@ -39,7 +39,7 @@ Pre-requisites:
 
 ## Installing App Dependencies
 
-1. At this point, we should have a provisioned VM running an nginx web server containing our syncronised app folder. To check this, `vagrant ssh` into the VM on a Git bash terminal and enter `cd app` followed by `pwd` to print the working directory. The following should appear if the VM was installed and syncronised correctly.
+1. At this point, we should have a provisioned VM running an Nginx web server containing our syncronised app folder. To check this, `vagrant ssh` into the VM on a Git bash terminal and enter `cd app` followed by `pwd` to print the working directory. The following should appear if the VM was installed and syncronised correctly.
 
     <img src="images/terminal-app.png" alt="terminal-app" width="300px">
 

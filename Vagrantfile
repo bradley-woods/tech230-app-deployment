@@ -1,4 +1,3 @@
-
 Vagrant.configure("2") do |config|
  
   # configure the VM settings
