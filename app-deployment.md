@@ -46,8 +46,6 @@ Pre-requisites:
 2. The next step is to install a list of app dependencies (packages that our app need to work properly) using the following commands. In summary, this installs the required software and tools necessary to run the app on the VM, such as nodeJS, process manager and Python software properties.
 
     ```console
-    $ sudo apt-get install nodejs -y
-
     $ sudo apt-get install python-software-properties
 
     $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
